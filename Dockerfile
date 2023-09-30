@@ -78,7 +78,7 @@ RUN addgroup -g 1000 node \
     fi \
     && rm -f "node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz" \
     && apk del .build-deps \
-    # ここからだけ変更
+    # ここから下だけ変更
     && npm install -g pnpm\
     && rm -rf usr/local/lib/node_modules/npm root/.npm usr/local/bin/npm usr/local/bin/npx \
     && node --version \
