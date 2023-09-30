@@ -2,6 +2,8 @@
 # add: pnpm latest
 # without: npm yarn
 # This image is for personal use and will not be updated.
+# Licensed under the Apache License, Version 2.0 (the "License").
+
 FROM alpine:3.18
 
 ENV NODE_VERSION 18.18.0
