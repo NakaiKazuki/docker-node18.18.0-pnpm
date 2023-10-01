@@ -8,7 +8,7 @@ FROM alpine:3.18
 
 ENV NODE_VERSION 18.18.0
 
-
+COPY docker-entrypoint.sh /usr/local/bin/
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
     && apk add --no-cache \
@@ -82,10 +82,9 @@ RUN addgroup -g 1000 node \
     && npm install -g pnpm\
     && rm -rf usr/local/lib/node_modules/npm root/.npm usr/local/bin/npm usr/local/bin/npx \
     && node --version \
-    && pnpm --version
+    && pnpm --version \
+    && chmod +x /usr/local/bin/docker-entrypoint.sh
 
-
-COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD [ "node" ]
